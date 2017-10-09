@@ -1,10 +1,9 @@
-from flask import Flask, render_template, jsonify, request
-
+from flask import Flask, render_template
+from app.modules.string.views import stringProcessorAPI
 
 app = Flask(__name__)
 
 # String processor APIs
-from app.modules.string.views import stringProcessorAPI
 app.register_blueprint(stringProcessorAPI)
 
 
