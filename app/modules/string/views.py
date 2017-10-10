@@ -1,21 +1,17 @@
-
-
-__author__    = "Copyright (c) 2017>"
-__copyright__ = "Licensed under GPLv2 or later."
-
-
+from app.modules.string.stringProcessor import StringProcessor
 from flask import Blueprint, jsonify
 
 stringProcessorAPI = Blueprint('stringProcessorAPI', __name__, url_prefix='/api/string')
 
 
-@stringProcessorAPI.route('/reverse/<string_to_reverse>', methods=['GET'])
-def reverse_string(string_to_reverse):
+@stringProcessorAPI.route('/reverse_and_merge/<original_string>', methods=['GET'])
+def reverse_and_merge_string(original_string):
 
-    reversed_string = string_to_reverse[::-1]
+    result_string = StringProcessor.reverse_and_merge(original_string)
     result = {
-        "original": string_to_reverse,
-        "result": reversed_string
+        "original": original_string,
+        "result": result_string,
+        "action": 'reverse_and_merge'
     }
 
     return jsonify(result)
