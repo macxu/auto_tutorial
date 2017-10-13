@@ -8,10 +8,11 @@ stringProcessorAPI = Blueprint('stringProcessorAPI', __name__, url_prefix='/api/
 def reverse_and_merge_string(original_string):
 
     result_string = StringProcessor.reverse_and_merge(original_string)
-    result = {
-        "original": original_string,
-        "result": result_string,
-        "action": 'reverse_and_merge'
-    }
+    # result = {
+    #     "original": original_string,
+    #     "result": result_string,
+    #     "action": 'reverse_and_merge'
+    # }
 
-    return jsonify(result)
+    return result_string
+    # return jsonify(result)
